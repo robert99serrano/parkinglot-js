@@ -1,0 +1,22 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    padding:0;
+    margin:0;
+    border:0
+}
+header{
+    background-color: #272624;
+}
+#header-logo{
+    width:64px;
+    height:64px;
+}
+#header-msg{
+    font-size: 35px;
+    color: white;
+}
+
+.form-group{
+    padding: .375rem .75rem;
+}
+
