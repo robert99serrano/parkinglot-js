@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./JS/FileSaver.min.js"></script>
+    <title>Parqueo</title>
+</head>
+
+<body>
+    <header class="shadow">
+        <div class="header-content d-flex justify-content-center p-2">
+            <img src="./Images/pngegg.png" alt="" id="header-logo">
+            <div id="header-msg" class="ml-5 align-self-center">Gestion de estacionamiento</div>            
+        </div>
+    </header>
+    <div class="form-container mt-5">
+        <form class="w-50 mx-auto" id="formEntrada">            
+            <div class="form-group">
+                <label for="duenio">Dueño del Carro:</label>
+                <input type="text" class="form-control shadow-sm" id="duenio">
+            </div>
+            <div class="form-group">
+                <label for="carro">Modelo del Carro:</label>
+                <input type="text" class="form-control shadow-sm" id="carro">
+            </div>
+            <div class="form-group">
+                <label for="matricula">Placa:</label>
+                <input type="text" class="form-control shadow-sm" id="matricula">
+            </div>
+            <div class="form-group">
+                <label for="tipo">Tipo de Vehículo:</label>
+                <select class="form-control shadow-sm" id="tipo">
+                    <option value="motocicleta">Motocicleta</option>
+                    <option value="carro pequeño">Carro Pequeño</option>
+                    <option value="pickup o microbus">Pickup o Microbus</option>
+                    <option value="camion 3t">Camion 3t</option>
+                    <option value="camion 5t">Camion 5t</option>
+                    <option value="camion 9t">Camion 9t</option>
+                    <option value="camion 3 ejes">Camion 3 Ejes</option>
+                </select>
+            </div><br>
+            <button type="submit" class="btn btn-outline-dark mx-auto d-flex" id="btnGuardar">Agregar Carro</button>
+        </form>
+    </div>
+    <div class="table-container mt-5 mb-5 w-75 mx-auto">
+        <h5 class="text-center mb-3">Búsqueda de Carros</h5>
+        <input type="text" class="form-control mb-3" id="txtBuscar" placeholder="Búsqueda...">
+        <br>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Datos del carro</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="duenoHeader"><strong>Dueño:</strong> <span id="dueno"></span></p>
+                        <p id="placaHeader"><strong>Matrícula:</strong> <span id="placa"></span></p>
+                        <p id="horaInicioHeader"><strong>Hora Entrada:</strong> <span id="hora-inicio"></span></p>
+                        <p id="horaFinalHeader"><strong>Hora Salida:</strong> <span id="hora-final"></span></p>
+                        <p id="diffHeader"><strong>Tiempo de permanencia:</strong> <span id="horas-parqueadas"></span></p>
+                        <p id="costoTHeader"><strong>Precio Total:</strong> <span id="precio-total"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="btnDescargar">Descargar archivo</button>
+                        <a href="#" download="datoParqueo.csv" id="downloadLink" style="display: none;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped shadow" id="tableHead">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Dueño</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Hora de Entrada</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <div class="income-container mt-5 mb-5 w-75 mx-auto">
+            <h5 class="text-center mb-3">Ingresos Totales</h5>
+            <p class="text-center" id="total-ingresos">$0.00</p>
+        </div>
+    </div>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="./JS/core.js"></script>
+</body>
+
+</html>
